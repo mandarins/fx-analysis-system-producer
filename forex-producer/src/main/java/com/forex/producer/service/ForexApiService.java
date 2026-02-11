@@ -2,6 +2,7 @@ package com.forex.producer.service;
 
 import com.forex.producer.model.ForexPrice;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -12,6 +13,7 @@ import java.util.Random;
 
 @Service
 @Slf4j
+@ConditionalOnProperty(name = "forex.data.source", havingValue = "MOCK")
 public class ForexApiService {
 
     private final RestTemplate restTemplate = new RestTemplate();

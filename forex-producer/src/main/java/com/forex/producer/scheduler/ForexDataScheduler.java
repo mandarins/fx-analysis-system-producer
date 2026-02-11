@@ -5,6 +5,7 @@ import com.forex.producer.service.ForexApiService;
 import com.forex.producer.service.KafkaProducerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @Component
 @Slf4j
 @RequiredArgsConstructor
+@ConditionalOnProperty(name = "forex.data.source", havingValue = "MOCK")
 public class ForexDataScheduler {
 
     private final ForexApiService forexApiService;
